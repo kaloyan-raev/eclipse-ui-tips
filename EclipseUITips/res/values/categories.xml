@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="general">General UI Guidelines</string>
+    <string name="graphics">UI Graphics</string>
+    <string name="development">Component Development</string>
+    <string name="components">Standard Components</string>
+    <string name="flat">Flat Look Design</string>
+    <string name="tao">The Tao of Resource</string>
+    <string name="accessibility">Accessibility</string>
+    
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="spirit">The Spirit of Eclipse</string>
+    <string name="capitalization">Capitalization</string>
+    <string name="language">Language</string>
+    <string name="errors">Error Handling</string>
+    <string name="design">Design</string>
+    <string name="specifications">Specifications</string>
+    <string name="implementation">Implementation</string>
+    <string name="commands">Commands</string>
+    <string name="dialogs">Dialogs</string>
+    <string name="wizards">Wizards</string>
+    <string name="editors">Editors</string>
+    <string name="views">Views</string>
+    <string name="perspectives">Perspectives</string>
+    <string name="windows">Windows</string>
+    <string name="properties">Properties</string>
+    <string name="widgets">Widgets</string>
+    <string name="navigator">The Navigator View</string>
+    <string name="tasks">The Tasks View</string>
+    <string name="preferences">The Preference Dialog</string>
+    
+</resources>
