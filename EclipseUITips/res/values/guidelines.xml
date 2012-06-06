@@ -121,7 +121,7 @@
     <string name="guideline_9.9">Always use the global status bar to display status related messages.</string>
     <string name="guideline_10.1">Use the Properties view to edit the properties of an object when quick access is important, and you will switch quickly from object to object.</string>
     <string name="guideline_10.2">Use a Properties Dialog to edit the properties of an object which are expensive to calculate.</string>
-    <string name="guideline_10.3">Use a Properties Dialog to edit the properties of an object which contain complex relationships to one anoth</string>
+    <string name="guideline_10.3">Use a Properties Dialog to edit the properties of an object which contain complex relationships to one another.</string>
     <string name="guideline_10.4">Properties Dialog should contain the superset of items shown in the Properties view.</string>
     <string name="guideline_11.1">For Tree and Table widgets that have a checkbox associated with a cell item, changing the current selection should not automatically change the check state of the selected item. However, the current selection should be set to a given item when its check state is changed.</string>
     <string name="guideline_12.1">If appropriate, add actions to standard components of Eclipse using the plug-in registry.</string>
