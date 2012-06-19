@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<CheckBoxPreference
+        android:key="tip_of_the_day"
+		android:summary="Show notification with random guideline every day at 8:45 am"
+		android:title="Tip of the day"
+		android:defaultValue="false"
+	/>
+
+</PreferenceScreen>

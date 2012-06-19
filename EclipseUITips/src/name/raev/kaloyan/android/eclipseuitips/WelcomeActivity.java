@@ -10,38 +10,108 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
+import static java.util.Calendar.DATE;
+import static java.util.Calendar.HOUR_OF_DAY;
+import static java.util.Calendar.MINUTE;
+
 import java.util.Calendar;
 
-import name.raev.kaloyan.android.eclipseuitips.R;
-
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
-public class WelcomeActivity extends Activity {
+public class WelcomeActivity extends PreferenceActivity {
+	
+	private final static String CHECKBOX_KEY = "tip_of_the_day";
+	private final static int REQUEST_CODE = 919728657;
+
+	private Intent intent;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        addPreferencesFromResource(R.layout.preferences);
         
-        scheduleAlarm();
+        intent = new Intent(this, AlarmReceiver.class);
+        
+        findPreference(CHECKBOX_KEY).setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				updateAlarm();
+				return true;
+			}
+		});
+        
+        // schedule the alarm if the check box is selected
+        updateAlarm();
+    }
+    
+    private boolean tipEnabled() {
+    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    	return prefs.getBoolean(CHECKBOX_KEY, false);
+    }
+    
+    private void updateAlarm() {
+    	if (tipEnabled()) {
+    		scheduleAlarm();
+    	} else {
+    		cancelAlarm();
+    	}
+    }
+    
+    private boolean isAlarmSet() {
+		return PendingIntent.getBroadcast(this, REQUEST_CODE, intent, PendingIntent.FLAG_NO_CREATE) != null;
+    }
+    
+    private void cancelAlarm() {
+    	if (isAlarmSet()) { // cancel only if set previously
+	    	PendingIntent sender = getSender();
+	    	getAlarmManager().cancel(sender);
+	    	sender.cancel();
+    	}
     }
 
 	private void scheduleAlarm() {
-		 // get a Calendar object with current time
-		 Calendar cal = Calendar.getInstance();
-		 // add 5 minutes to the calendar object
-		 cal.add(Calendar.SECOND, 15);
-		 Intent intent = new Intent(this, AlarmReceiver.class);
-		 intent.putExtra("alarm_message", "O'Doyle Rules!");
-		 // In reality, you would want to have a static variable for the request code instead of 192837
-		 PendingIntent sender = PendingIntent.getBroadcast(this, 919728657, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-		 
-		 // Get the AlarmManager service
-		 AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-		 am.setInexactRepeating(AlarmManager.RTC, cal.getTimeInMillis(), 15 * 1000 * 100, sender);
+		// make sure the alarm is canceled
+		cancelAlarm();
+		
+		// schedule the alarm 
+		getAlarmManager().setInexactRepeating(
+				AlarmManager.RTC, // no wake up
+				getAlarmTime(), 
+				AlarmManager.INTERVAL_DAY, 
+				getSender());
 	}
+	
+	private AlarmManager getAlarmManager() {
+		return (AlarmManager) getSystemService(ALARM_SERVICE);
+	}
+	
+	private PendingIntent getSender() {
+		return PendingIntent.getBroadcast(this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	}
+	
+	private long getAlarmTime() {
+		Calendar c = Calendar.getInstance();
+
+		// if the current time is after 8:45 am then schedule for tomorrow
+		if ((c.get(HOUR_OF_DAY) > 9) 
+				|| (c.get(HOUR_OF_DAY) == 8 && c.get(MINUTE) > 45)) {
+			c.add(DATE, 1);
+		}
+		
+		// schedule for 8:45 am
+		c.set(HOUR_OF_DAY, 8);
+		c.set(MINUTE, 45);
+		
+		return c.getTimeInMillis();		
+	}
+	
 }
