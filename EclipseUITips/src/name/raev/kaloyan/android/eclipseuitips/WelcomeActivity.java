@@ -13,6 +13,8 @@ package name.raev.kaloyan.android.eclipseuitips;
 import static java.util.Calendar.DATE;
 import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;
+import static java.util.Calendar.SECOND;
+import static java.util.Calendar.MILLISECOND;
 
 import java.util.Calendar;
 
@@ -30,6 +32,9 @@ public class WelcomeActivity extends PreferenceActivity {
 	
 	private final static String CHECKBOX_KEY = "tip_of_the_day";
 	private final static int REQUEST_CODE = 919728657;
+	
+	private final static int ALARM_HOUR = 8;
+	private final static int ALARM_MINUTE = 30;
 
 	private Intent intent;
 	
@@ -101,15 +106,18 @@ public class WelcomeActivity extends PreferenceActivity {
 	private long getAlarmTime() {
 		Calendar c = Calendar.getInstance();
 
-		// if the current time is after 8:45 am then schedule for tomorrow
-		if ((c.get(HOUR_OF_DAY) > 9) 
-				|| (c.get(HOUR_OF_DAY) == 8 && c.get(MINUTE) > 45)) {
-			c.add(DATE, 1);
-		}
+		long now = c.getTimeInMillis();
 		
-		// schedule for 8:45 am
-		c.set(HOUR_OF_DAY, 8);
-		c.set(MINUTE, 45);
+		// schedule for 8:30 am
+		c.set(HOUR_OF_DAY, ALARM_HOUR);
+		c.set(MINUTE, ALARM_MINUTE);
+		c.set(SECOND, 0);
+		c.set(MILLISECOND, 0);
+		
+		// if the current time is after 8:30 am then schedule for tomorrow
+		if (now > c.getTimeInMillis()) { 
+			c.add(DATE, 1); // add one day
+		}
 		
 		return c.getTimeInMillis();		
 	}

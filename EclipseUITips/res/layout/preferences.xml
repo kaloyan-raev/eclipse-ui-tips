@@ -3,7 +3,7 @@
 
 	<CheckBoxPreference
         android:key="tip_of_the_day"
-		android:summary="Show notification with random guideline every day at 8:45 am"
+		android:summary="Show notification with random guideline every day at 8:30 am"
 		android:title="Tip of the day"
 		android:defaultValue="false"
 	/>
