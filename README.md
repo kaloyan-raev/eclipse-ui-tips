@@ -17,7 +17,7 @@ User Guide
 ----------
 
 * Starting the application brings you to the preferences where you can switch on and off the "tip of the day" feature. 
-* Enabling the "tip of the day" feature will trigger a status bar notification with a random UI guideline each morning at around 8:30 am. 
+* Enabling the "tip of the day" feature triggers a status bar notification with a random UI guideline each morning at around 8:30 am. 
 * Tapping on the status bar notification opens the full description of the displayed UI guideline. 
 
 Feedback and support
