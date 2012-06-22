@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="hello">Hello World, TipsActivity!</string>
     <string name="app_name">Eclipse UI Tips</string>
     <string name="notify_ticker_text">Eclipse UI Tip of the Day</string>
     <string name="guideline">Guideline %s</string>
