@@ -6,7 +6,7 @@ This Android application helps Eclipse plug-in developers to refresh their knowl
 Installation
 ------------
 
-TODO: Link to the marketplace. 
+[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_large.png)](http://play.google.com/store/apps/details?id=nameraev.kaloyan.android.eclipseuitips)
 
 ### Requirements
 
