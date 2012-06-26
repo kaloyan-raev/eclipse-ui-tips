@@ -8,11 +8,18 @@
         android:id="@+id/textGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" 
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
         android:id="@+id/textCategory"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" 
+        android:textColor="@android:color/tertiary_text_dark"/>
 
 </LinearLayout>
