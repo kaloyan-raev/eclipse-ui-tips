@@ -8,5 +8,8 @@
     <string name="pref_tip_title">Tip of the day</string>
     <string name="pref_tip_summary">Show notification with random guideline every day</string>
     <string name="pref_time_title">Set time</string>
+    <string name="pref_wiki_title">Go to UI guidelines wiki</string>
+    <string name="pref_settings_title">Settings</string>
+    <string name="pref_links_title">Links</string>
 
 </resources>

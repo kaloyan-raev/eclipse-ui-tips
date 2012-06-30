@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-	<CheckBoxPreference
-        android:key="tip_of_the_day"
-		android:title="@string/pref_tip_title"
-		android:summary="@string/pref_tip_summary"
-		android:defaultValue="false"
-	/>
+    
+    <PreferenceCategory
+        android:key="settings"
+        android:title="@string/pref_settings_title">
+        
+		<CheckBoxPreference
+	        android:key="tip_of_the_day"
+			android:title="@string/pref_tip_title"
+			android:summary="@string/pref_tip_summary"
+			android:defaultValue="false"
+		/>
+		
+		<name.raev.kaloyan.android.eclipseuitips.TimePreference
+		    android:key="time"
+		    android:title="@string/pref_time_title"
+		    android:positiveButtonText="@string/set"
+		    android:negativeButtonText="@string/cancel"
+		    android:dependency="tip_of_the_day"
+		/>
+		
+    </PreferenceCategory>
 	
-	<name.raev.kaloyan.android.eclipseuitips.TimePreference
-	    android:key="time"
-	    android:title="@string/pref_time_title"
-	    android:positiveButtonText="@string/set"
-	    android:negativeButtonText="@string/cancel"
-	    android:dependency="tip_of_the_day"
-	/>
+    <PreferenceCategory
+        android:key="links"
+        android:title="@string/pref_links_title">
+        
+        <name.raev.kaloyan.android.eclipseuitips.OpenUrlPreference
+	        android:title="@string/pref_wiki_title"
+	        url="http://wiki.eclipse.org/User_Interface_Guidelines"
+	    />
+        
+    </PreferenceCategory>
 
 </PreferenceScreen>
