@@ -27,9 +27,6 @@ public class Scheduler {
 	
 	private final static int REQUEST_CODE = 919728657;
 	
-	private final static int ALARM_HOUR = 8;
-	private final static int ALARM_MINUTE = 30;
-	
 	private Context context;
 	private Intent intent;
 	
@@ -63,7 +60,7 @@ public class Scheduler {
 		cancelAlarm();
 		
 		// schedule the alarm 
-		getAlarmManager().setInexactRepeating(
+		getAlarmManager().setRepeating(
 				AlarmManager.RTC, // no wake up
 				getAlarmTime(), 
 				AlarmManager.INTERVAL_DAY, 
@@ -80,16 +77,20 @@ public class Scheduler {
 	
 	private long getAlarmTime() {
 		Calendar c = Calendar.getInstance();
-
+		
+		// store the current time in a separate variable
 		long now = c.getTimeInMillis();
 		
-		// schedule for 8:30 am
-		c.set(HOUR_OF_DAY, ALARM_HOUR);
-		c.set(MINUTE, ALARM_MINUTE);
+		// read the configured time
+		Time time = Preferences.getTime(context);
+		
+		// reset the calendar with the configured time
+		c.set(HOUR_OF_DAY, time.getHour());
+		c.set(MINUTE, time.getMinute());
 		c.set(SECOND, 0);
 		c.set(MILLISECOND, 0);
 		
-		// if the current time is after 8:30 am then schedule for tomorrow
+		// if the current time is after the configured time then schedule for tomorrow
 		if (now > c.getTimeInMillis()) { 
 			c.add(DATE, 1); // add one day
 		}

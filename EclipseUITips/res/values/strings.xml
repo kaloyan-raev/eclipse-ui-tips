@@ -3,5 +3,7 @@
     <string name="app_name">Eclipse UI Tips</string>
     <string name="notify_ticker_text">Eclipse UI Tip of the Day</string>
     <string name="guideline">Guideline %s</string>
+    <string name="set">Set</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

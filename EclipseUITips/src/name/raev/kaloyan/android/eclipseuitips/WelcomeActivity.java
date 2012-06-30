@@ -10,12 +10,13 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
-public class WelcomeActivity extends PreferenceActivity {
+public class WelcomeActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 	
     /** Called when the activity is first created. */
     @Override
@@ -23,20 +24,32 @@ public class WelcomeActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.layout.preferences);
         
-        findPreference(Preferences.TIP_OF_THE_DAY).setOnPreferenceClickListener(new OnPreferenceClickListener() {
-			@Override
-			public boolean onPreferenceClick(Preference preference) {
-				updateAlarm();
-				return true;
-			}
-		});
+        // register a listener to update the alarm when preferences change
+    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    	prefs.registerOnSharedPreferenceChangeListener(this);
         
         // schedule the alarm if the check box is selected
         updateAlarm();
     }
     
-    private void updateAlarm() {
-    	new Scheduler(this).updateAlarm();
-    }
+    @Override
+	protected void onDestroy() {
+		// unregister the preference listener
+    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    	prefs.unregisterOnSharedPreferenceChangeListener(this);
+
+    	super.onDestroy();
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+		if (Preferences.TIP_OF_THE_DAY.equals(key) || Preferences.TIME.equals(key)) {
+			updateAlarm();
+		}
+	}
+
+	private void updateAlarm() {
+		new Scheduler(this).updateAlarm();
+	}
 	
 }
