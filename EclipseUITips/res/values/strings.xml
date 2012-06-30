@@ -5,5 +5,8 @@
     <string name="guideline">Guideline %s</string>
     <string name="set">Set</string>
     <string name="cancel">Cancel</string>
+    <string name="pref_tip_title">Tip of the day</string>
+    <string name="pref_tip_summary">Show notification with random guideline every day</string>
+    <string name="pref_time_title">Set time</string>
 
 </resources>

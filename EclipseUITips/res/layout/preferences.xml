@@ -3,14 +3,14 @@
 
 	<CheckBoxPreference
         android:key="tip_of_the_day"
-		android:summary="Show notification with random guideline every day"
-		android:title="Tip of the day"
+		android:title="@string/pref_tip_title"
+		android:summary="@string/pref_tip_summary"
 		android:defaultValue="false"
 	/>
 	
 	<name.raev.kaloyan.android.eclipseuitips.TimePreference
 	    android:key="time"
-	    android:title="Set time"
+	    android:title="@string/pref_time_title"
 	    android:positiveButtonText="@string/set"
 	    android:negativeButtonText="@string/cancel"
 	    android:dependency="tip_of_the_day"
