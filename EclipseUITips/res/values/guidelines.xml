@@ -39,7 +39,7 @@
     <string name="guideline_5.1">Use a wizard for any task consisting of many steps, which must be completed in a specific order.</string>
     <string name="guideline_5.2">Each wizard must contain a header with a banner graphic and a text area for user feedback. It must also contain Back, Next, Finish, and Cancel buttons in the footer.</string>
     <string name="guideline_5.3">Start the wizard with a prompt, not an error message.</string>
-    <string name="guideline_5.4">Start the wizard with a prompt, not an error message.</string>
+    <string name="guideline_5.4">Seed the fields within the wizard using the current workbench state.</string>
     <string name="guideline_5.5">Validate the wizard data in tab order. Display a prompt when information is absent, and an error when information is invalid.</string>
     <string name="guideline_5.6">Enable the Next / Finish buttons only if all required information in the dialog is present and valid.</string>
     <string name="guideline_5.7">Remove all programming message ID\'s from wizard text.</string>
