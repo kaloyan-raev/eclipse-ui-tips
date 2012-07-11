@@ -88,7 +88,7 @@
     <string name="guideline_7.7">If a view contains more than one control, it may be advisable to split it up into two or more views.</string>
     <string name="guideline_7.8">When a view first opens, derive the view input from the state of the perspective.</string>
     <string name="guideline_7.9">If a view displays a resource tree, consider using the window input as the root of visible information in the view.</string>
-    <string name="guideline_7.10">Use the view pulldonw menu for presentation commands, not selection-oriented commands.</string>
+    <string name="guideline_7.10">Use the view pulldown menu for presentation commands, not selection-oriented commands.</string>
     <string name="guideline_7.11">Use the standard order of commands for view pulldown menus.</string>
     <string name="guideline_7.12">Put only the most commonly used commands on the toolbar. Any command on a toolbar must also appear in a menu, either the context menu or the view menu.</string>
     <string name="guideline_7.13">Fill the context menu with selection oriented actions, not presentation actions.</string>
