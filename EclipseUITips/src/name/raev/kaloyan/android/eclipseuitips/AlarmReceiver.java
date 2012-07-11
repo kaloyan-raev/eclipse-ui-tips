@@ -10,9 +10,6 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
-import java.util.Random;
-
-import name.raev.kaloyan.android.eclipseuitips.R;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -35,12 +32,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 		notification.flags = Notification.FLAG_AUTO_CANCEL;
 		
 		// draw a random guideline to display in the notification
-		int index = new Random().nextInt(Guideline.values().length);
-		Guideline guideline = Guideline.values()[index];
+		Guideline guideline = Guideline.random();
 		
 		Intent notificationIntent = new Intent(context, GuidelineActivity.class);
 		// pass the index of the guideline with this intent
-		notificationIntent.putExtra(Guideline.EXTRA_INDEX, index);
+		notificationIntent.putExtra(Guideline.EXTRA_INDEX, guideline.ordinal());
 		PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 		CharSequence contentTitle = context.getString(guideline.subcategory);

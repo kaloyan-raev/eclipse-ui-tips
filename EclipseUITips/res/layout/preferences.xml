@@ -2,6 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     
     <PreferenceCategory
+        android:key="learn"
+        android:title="@string/pref_learn_title">
+        
+        <name.raev.kaloyan.android.eclipseuitips.OpenRandomGuidelinePreference
+            android:title="@string/pref_random_title"
+        />
+        
+        <name.raev.kaloyan.android.eclipseuitips.OpenUrlPreference
+	        android:title="@string/pref_wiki_title"
+	        url="http://wiki.eclipse.org/User_Interface_Guidelines"
+	    />
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory
         android:key="settings"
         android:title="@string/pref_settings_title">
         
@@ -20,17 +35,6 @@
 		    android:dependency="tip_of_the_day"
 		/>
 		
-    </PreferenceCategory>
-	
-    <PreferenceCategory
-        android:key="links"
-        android:title="@string/pref_links_title">
-        
-        <name.raev.kaloyan.android.eclipseuitips.OpenUrlPreference
-	        android:title="@string/pref_wiki_title"
-	        url="http://wiki.eclipse.org/User_Interface_Guidelines"
-	    />
-        
     </PreferenceCategory>
 
 </PreferenceScreen>

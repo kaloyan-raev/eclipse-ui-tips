@@ -10,6 +10,8 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
+import java.util.Random;
+
 public enum Guideline {
 
 	G_1_1(R.string.index_1_1, R.string.general, R.string.spirit, R.string.guideline_1_1), 
@@ -169,6 +171,11 @@ public enum Guideline {
 		this.category = category;
 		this.subcategory = subcategory;
 		this.text = text;
+	}
+	
+	public static Guideline random() {
+		int index = new Random().nextInt(Guideline.values().length);
+		return Guideline.values()[index];
 	}
 
 }
