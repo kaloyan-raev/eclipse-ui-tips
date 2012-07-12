@@ -1,7 +1,7 @@
 Eclipse UI Tips for Android
 ===========================
 
-This Android application helps Eclipse plug-in developers to refresh their knowledge about the best practices for building Eclipse user interface. It triggers a status bar notification each morning at around 8:30 am with one of the 144 [Eclipse UI Guidelines](http://wiki.eclipse.org/User_Interface_Guidelines). 
+This Android application helps Eclipse plug-in developers to refresh their knowledge about the best practices for building Eclipse user interface. You can browse through all of the 144 [Eclipse UI Guidelines](http://wiki.eclipse.org/User_Interface_Guidelines). You can also enable the "tip of the day" feature which shows a random guideline every day as a status bar notification. 
 
 Installation
 ------------
