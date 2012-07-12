@@ -16,9 +16,13 @@ Installation
 User Guide
 ----------
 
-* Starting the application brings you to the preferences where you can switch on and off the "tip of the day" feature. 
-* Enabling the "tip of the day" feature triggers a status bar notification with a random UI guideline each morning at around 8:30 am. 
+* Starting the application brings you to the home screen where you can:
+ * Jump to a random guideline
+ * Go to the Eclipse UI Guidelines wiki page
+ * Switch on and off the "tip of the day" feature and configure the time to fire. 
+* Enabling the "tip of the day" feature triggers a status bar notification with a random UI guideline every day at the configured time.  
 * Tapping on the status bar notification opens the full description of the displayed UI guideline. 
+* Swiping left and right navigates between the guidelines. 
 
 Feedback and support
 --------------------
