@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2012 Kaloyan Raev.
+
+     All rights reserved. This program and the accompanying materials
+     are made available under the terms of the Eclipse Public License v1.0
+     which accompanies this distribution, and is available at
+     http://www.eclipse.org/legal/epl-v10.html
+
+     Contributors:
+       Kaloyan Raev - initial implementation
+-->
+
 <resources>
     <string name="spirit">The Spirit of Eclipse</string>
     <string name="capitalization">Capitalization</string>
@@ -19,5 +30,4 @@
     <string name="navigator">The Navigator View</string>
     <string name="tasks">The Tasks View</string>
     <string name="preferences">The Preference Dialog</string>
-    
 </resources>

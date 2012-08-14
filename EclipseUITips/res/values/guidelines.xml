@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2012 Kaloyan Raev.
+
+     All rights reserved. This program and the accompanying materials
+     are made available under the terms of the Eclipse Public License v1.0
+     which accompanies this distribution, and is available at
+     http://www.eclipse.org/legal/epl-v10.html
+
+     Contributors:
+       Kaloyan Raev - initial implementation
+-->
+
 <resources>
     <string name="guideline_1.1">Follow and apply good user interface design principles: user in control, directness, consistency, forgiveness, feedback, aesthetics, and simplicity.</string>
     <string name="guideline_1.2">Follow the platform lead for user interface conventions.</string>
