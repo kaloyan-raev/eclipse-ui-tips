@@ -2,15 +2,15 @@
 <resources>
     <string name="app_name">Eclipse UI Tips</string>
     <string name="notify_ticker_text">Eclipse UI Tip of the Day</string>
-    <string name="guideline">Guideline %s</string>
     <string name="set">Set</string>
     <string name="cancel">Cancel</string>
     <string name="pref_tip_title">Tip of the day</string>
     <string name="pref_tip_summary">Show notification with random guideline every day</string>
     <string name="pref_time_title">Set time</string>
-    <string name="pref_wiki_title">Go to UI guidelines wiki</string>
+    <string name="pref_wiki_title">Wiki</string>
     <string name="pref_settings_title">Settings</string>
     <string name="pref_learn_title">Learn</string>
-    <string name="pref_random_title">Show random guideline</string>
+    <string name="pref_browse_title">Browse</string>
+    <string name="pref_random_title">Random</string>
 
 </resources>

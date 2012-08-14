@@ -15,17 +15,17 @@ import android.content.Intent;
 import android.preference.Preference;
 import android.util.AttributeSet;
 
-public class OpenRandomGuidelinePreference extends Preference {
+public class BrowseAllGuidelinesPreference extends Preference {
 	
-	public OpenRandomGuidelinePreference(Context context) {
+	public BrowseAllGuidelinesPreference(Context context) {
 		this(context, null);
 	}
 
-	public OpenRandomGuidelinePreference(Context context, AttributeSet attrs) {
+	public BrowseAllGuidelinesPreference(Context context, AttributeSet attrs) {
 		this(context, attrs, android.R.attr.preferenceStyle);
 	}
 
-	public OpenRandomGuidelinePreference(Context context, AttributeSet attrs, int defStyle) {
+	public BrowseAllGuidelinesPreference(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
 
@@ -33,13 +33,8 @@ public class OpenRandomGuidelinePreference extends Preference {
 	protected void onClick() {
 		super.onClick();
 
-		// create an intent for showing the guidelines activity
-		Intent intent = new Intent(getContext(), GuidelinesPagerActivity.class);
-		// draw a random guideline to show in the guidelines list
-		Guideline guideline = Guideline.random();
-		// pass the index of the guideline with this intent
-		intent.putExtra(Guideline.EXTRA_INDEX, guideline.ordinal());
-		intent.putExtra(Guideline.EXTRA_HIGHLIGHTED, true);
+		// create an intent for showing the categories activity
+		Intent intent = new Intent(getContext(), CategoriesActivity.class);
 		// show the activity
 		getContext().startActivity(intent);
 	}

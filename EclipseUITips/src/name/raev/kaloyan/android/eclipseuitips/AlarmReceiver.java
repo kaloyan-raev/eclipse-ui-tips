@@ -34,12 +34,13 @@ public class AlarmReceiver extends BroadcastReceiver {
 		// draw a random guideline to display in the notification
 		Guideline guideline = Guideline.random();
 		
-		Intent notificationIntent = new Intent(context, GuidelineActivity.class);
+		Intent notificationIntent = new Intent(context, GuidelinesPagerActivity.class);
 		// pass the index of the guideline with this intent
 		notificationIntent.putExtra(Guideline.EXTRA_INDEX, guideline.ordinal());
+		notificationIntent.putExtra(Guideline.EXTRA_HIGHLIGHTED, true);
 		PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-		CharSequence contentTitle = context.getString(guideline.subcategory);
+		CharSequence contentTitle = context.getString(guideline.subcategory.name);
 		CharSequence contentText = context.getString(guideline.text);
 		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 		

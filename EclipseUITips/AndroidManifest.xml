@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GuidelineActivity"></activity>
+        <activity android:name=".CategoriesActivity"></activity>
+        <activity android:name=".GuidelinesPagerActivity"></activity>
         
         <receiver android:process=":remote" android:name=".AlarmReceiver"></receiver>
         <receiver android:name=".BootCompletedReceiver">

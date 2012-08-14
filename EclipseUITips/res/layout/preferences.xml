@@ -5,6 +5,10 @@
         android:key="learn"
         android:title="@string/pref_learn_title">
         
+        <name.raev.kaloyan.android.eclipseuitips.BrowseAllGuidelinesPreference
+            android:title="@string/pref_browse_title"
+        />
+        
         <name.raev.kaloyan.android.eclipseuitips.OpenRandomGuidelinePreference
             android:title="@string/pref_random_title"
         />
