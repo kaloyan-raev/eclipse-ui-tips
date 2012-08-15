@@ -17,6 +17,7 @@ User Guide
 ----------
 
 * Starting the application brings you to the home screen where you can:
+ * Browse through all of the guidelines
  * Jump to a random guideline
  * Go to the Eclipse UI Guidelines wiki page
  * Switch on and off the "tip of the day" feature and configure the time to fire. 
