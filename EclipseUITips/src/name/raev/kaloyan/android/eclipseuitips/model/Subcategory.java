@@ -8,11 +8,19 @@
  * Contributors:
  *    Kaloyan Raev - initial implementation
  *******************************************************************************/
-package name.raev.kaloyan.android.eclipseuitips;
+package name.raev.kaloyan.android.eclipseuitips.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import name.raev.kaloyan.android.eclipseuitips.R;
+
+/**
+ * Enumerates all subcategories of the Eclipse UI Guidelines. 
+ * 
+ * The Eclipse UI Guidelines are grouped in a tree hierarchy: categories, 
+ * subcategories and guidelines. 
+ */
 public enum Subcategory {
 	
 	SPIRIT(R.string.spirit, Category.GENERAL),
@@ -39,19 +47,39 @@ public enum Subcategory {
 	TAO(R.string.tao, Category.TAO),
 	ACCESSIBILITY(R.string.accessibility, Category.ACCESSIBILITY);
 	
-	int name;
-	Category category;
+	private int title;
+	private Category category;
 	
-	private Subcategory(int name, Category category) {
-		this.name = name;
+	private Subcategory(int title, Category category) {
+		this.title = title;
 		this.category = category;
 	}
 	
+	/**
+	 * Returns the subcategory's title. 
+	 * @return resource id of the title string 
+	 */
+	public int title() {
+		return title;
+	}
+	
+	/**
+	 * Returns the category that this subcategory belongs to. 
+	 * @return the parent category
+	 */
+	public Category category() {
+		return category;
+	}
+	
+	/**
+	 * Returns all guidelines that belong to this subcategory. 
+	 * @return a list of guidelines
+	 */
 	public List<Guideline> guidelines() {
 		List<Guideline> result = new ArrayList<Guideline>();
 		
 		for (Guideline g : Guideline.values()) {
-			if (this.equals(g.subcategory)) {
+			if (this.equals(g.subcategory())) {
 				result.add(g);
 			}
 		}

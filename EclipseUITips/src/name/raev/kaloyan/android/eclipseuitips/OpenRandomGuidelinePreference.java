@@ -10,6 +10,7 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
+import name.raev.kaloyan.android.eclipseuitips.model.Guideline;
 import android.content.Context;
 import android.content.Intent;
 import android.preference.Preference;

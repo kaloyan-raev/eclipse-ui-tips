@@ -10,6 +10,7 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
+import name.raev.kaloyan.android.eclipseuitips.model.Guideline;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -40,8 +41,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 		notificationIntent.putExtra(Guideline.EXTRA_HIGHLIGHTED, true);
 		PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-		CharSequence contentTitle = context.getString(guideline.subcategory.name);
-		CharSequence contentText = context.getString(guideline.text);
+		CharSequence contentTitle = context.getString(guideline.subcategory().title());
+		CharSequence contentText = context.getString(guideline.text());
 		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 		
 		mNotificationManager.notify(1, notification);

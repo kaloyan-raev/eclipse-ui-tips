@@ -8,8 +8,16 @@
  * Contributors:
  *    Kaloyan Raev - initial implementation
  *******************************************************************************/
-package name.raev.kaloyan.android.eclipseuitips;
+package name.raev.kaloyan.android.eclipseuitips.model;
 
+import name.raev.kaloyan.android.eclipseuitips.R;
+
+/**
+ * Enumerates all categories of the Eclipse UI Guidelines. 
+ * 
+ * The Eclipse UI Guidelines are grouped in a tree hierarchy: categories, 
+ * subcategories and guidelines. 
+ */
 public enum Category {
 	
 	GENERAL(R.string.general), 
@@ -20,10 +28,18 @@ public enum Category {
 	TAO(R.string.tao),
 	ACCESSIBILITY(R.string.accessibility); 
 	
-	int name;
+	private int title;
 	
-	private Category(int name) {
-		this.name = name;
+	private Category(int title) {
+		this.title = title;
+	}
+	
+	/**
+	 * Returns the category's title. 
+	 * @return resource id of the title string
+	 */
+	public int title() {
+		return title;
 	}
 
 }

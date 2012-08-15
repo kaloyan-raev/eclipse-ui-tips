@@ -10,6 +10,8 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
+import name.raev.kaloyan.android.eclipseuitips.model.Guideline;
+import name.raev.kaloyan.android.eclipseuitips.model.Subcategory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -40,14 +42,14 @@ public class GuidelinesPagerActivity extends FragmentActivity implements OnPageC
         mPager.setAdapter(new GuidelinesPageAdapter(guideline, highlighted));
         
         // set the initial page to the guideline's category
-        int subcategoryIndex = guideline.subcategory.ordinal();
+        int subcategoryIndex = guideline.subcategory().ordinal();
         mPager.setCurrentItem(subcategoryIndex);
         setActivityTitle(subcategoryIndex);
 	}
 	
 	private void setActivityTitle(int subcategoryIndex) {
 		Subcategory subcategory = Subcategory.values()[subcategoryIndex];
-        setTitle(getString(subcategory.name));
+        setTitle(getString(subcategory.title()));
 	}
 	
     @Override

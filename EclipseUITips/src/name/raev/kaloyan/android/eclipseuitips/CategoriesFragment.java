@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import name.raev.kaloyan.android.eclipseuitips.model.Category;
+import name.raev.kaloyan.android.eclipseuitips.model.Guideline;
+import name.raev.kaloyan.android.eclipseuitips.model.Subcategory;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -88,13 +91,13 @@ public class CategoriesFragment extends ListFragment {
 		int ordinal;
 		
 		public CategoryItem(Category category) {
-			title = category.name;
+			title = category.title();
 			isSubcategory = false;
 			ordinal = category.ordinal();
 		}
 		
 		public CategoryItem(Subcategory subcategory) {
-			title = subcategory.name;
+			title = subcategory.title();
 			isSubcategory = true;
 			ordinal = subcategory.ordinal();
 		}
@@ -105,13 +108,17 @@ public class CategoriesFragment extends ListFragment {
 			Set<Subcategory> subcategories = new HashSet<Subcategory>();
 			
 			for (Guideline g : Guideline.values()) {
-				if (!categories.contains(g.category)) {
-					list.add(new CategoryItem(g.category));
-					categories.add(g.category);
+				Subcategory subcategory = g.subcategory();
+				Category category = subcategory.category();
+				
+				if (!categories.contains(category)) {
+					list.add(new CategoryItem(category));
+					categories.add(category);
 				}
-				if (!subcategories.contains(g.subcategory)) {
-					list.add(new CategoryItem(g.subcategory));
-					subcategories.add(g.subcategory);
+				
+				if (!subcategories.contains(subcategory)) {
+					list.add(new CategoryItem(subcategory));
+					subcategories.add(subcategory);
 				}
 			}
 			

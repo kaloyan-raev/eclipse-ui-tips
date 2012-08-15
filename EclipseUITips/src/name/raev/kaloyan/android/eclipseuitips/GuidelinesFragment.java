@@ -10,6 +10,8 @@
  *******************************************************************************/
 package name.raev.kaloyan.android.eclipseuitips;
 
+import name.raev.kaloyan.android.eclipseuitips.model.Guideline;
+import name.raev.kaloyan.android.eclipseuitips.model.Subcategory;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -51,7 +53,7 @@ public class GuidelinesFragment extends ListFragment {
         setListAdapter(new GuidelinesAdapter());
         
         // scroll the list to the highlighted guideline if any
-        if (mHighlighted && mGuideline.subcategory == mSubcategory) {
+        if (mHighlighted && mGuideline.subcategory() == mSubcategory) {
         	setSelection(Guideline.positionInSubcategory(mGuideline));
         }
     }
@@ -71,7 +73,7 @@ public class GuidelinesFragment extends ListFragment {
     		View v = convertView;
     		
     		if (mHighlighted && 
-    				mGuideline.subcategory == mSubcategory && 
+    				mGuideline.subcategory() == mSubcategory && 
     				position == Guideline.positionInSubcategory(mGuideline)) {
     			v = vi.inflate(R.layout.guideline_list_item_highlight, null);
     		} else {
@@ -82,7 +84,7 @@ public class GuidelinesFragment extends ListFragment {
     		
     		// set text to the guideline's index and text
 			Guideline g = getItem(position);
-			text.setText(getContext().getText(g.index) + ". " + getContext().getText(g.text));
+			text.setText(getContext().getText(g.index()) + ". " + getContext().getText(g.text()));
 			
 			return v;
 		}
