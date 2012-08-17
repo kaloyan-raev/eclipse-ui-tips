@@ -67,7 +67,7 @@ public class CategoriesFragment extends ListFragment {
 				if (c.isSubcategory) {
 					v = vi.inflate(R.layout.category_item, null);
 					
-					((TextView) v.findViewById(R.id.category_item_title)).setText(c.title);
+					((TextView) v.findViewById(R.id.text)).setText(c.title);
 				} else {
 					v = vi.inflate(R.layout.category_section, null);
 
@@ -75,7 +75,7 @@ public class CategoriesFragment extends ListFragment {
 					v.setOnLongClickListener(null);
 					v.setLongClickable(false);
 					
-					((TextView) v.findViewById(R.id.category_section_text)).setText(c.title);
+					((TextView) v.findViewById(R.id.text)).setText(c.title);
 				}
 			}
 			

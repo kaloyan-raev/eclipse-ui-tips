@@ -80,7 +80,7 @@ public class GuidelinesFragment extends ListFragment {
     			v = vi.inflate(R.layout.guideline_list_item, null);
     		}
     			
-    		TextView text = ((TextView) v.findViewById(R.id.guideline_list_item));
+    		TextView text = ((TextView) v.findViewById(R.id.text));
     		
     		// set text to the guideline's index and text
 			Guideline g = getItem(position);
