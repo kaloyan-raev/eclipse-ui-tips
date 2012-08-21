@@ -14,14 +14,15 @@ import name.raev.kaloyan.android.eclipseuitips.model.Guideline;
 import name.raev.kaloyan.android.eclipseuitips.model.Subcategory;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class GuidelinesFragment extends ListFragment {
+import com.actionbarsherlock.app.SherlockListFragment;
+
+public class GuidelinesFragment extends SherlockListFragment {
 	
 	private Subcategory mSubcategory;
 	private Guideline mGuideline;

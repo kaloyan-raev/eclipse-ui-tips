@@ -20,7 +20,6 @@ import name.raev.kaloyan.android.eclipseuitips.model.Subcategory;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class CategoriesFragment extends ListFragment {
+import com.actionbarsherlock.app.SherlockListFragment;
+
+public class CategoriesFragment extends SherlockListFragment {
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

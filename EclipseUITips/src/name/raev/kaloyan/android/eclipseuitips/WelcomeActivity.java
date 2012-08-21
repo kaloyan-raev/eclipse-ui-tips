@@ -13,10 +13,11 @@ package name.raev.kaloyan.android.eclipseuitips;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-public class WelcomeActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+
+public class WelcomeActivity extends SherlockPreferenceActivity implements OnSharedPreferenceChangeListener {
 	
     /** Called when the activity is first created. */
     @Override

@@ -11,9 +11,8 @@
 package name.raev.kaloyan.android.eclipseuitips;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
-public class CategoriesActivity extends FragmentActivity {
+public class CategoriesActivity extends UpNavigationActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
