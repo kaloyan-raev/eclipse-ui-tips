@@ -36,7 +36,7 @@ public enum Subcategory {
 	EDITORS(R.string.editors, Category.DEVELOPMENT),
 	VIEWS(R.string.views, Category.DEVELOPMENT),
 	PERSPECTIVES(R.string.perspectives, Category.DEVELOPMENT),
-	WINDOWDS(R.string.windows, Category.DEVELOPMENT),
+	WINDOWS(R.string.windows, Category.DEVELOPMENT),
 	PROPERTIES(R.string.properties, Category.DEVELOPMENT),
 	WIDGETS(R.string.widgets, Category.DEVELOPMENT),
 	COMPONENTS(R.string.components, Category.COMPONENTS),

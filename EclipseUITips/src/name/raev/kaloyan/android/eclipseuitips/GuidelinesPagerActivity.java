@@ -13,15 +13,18 @@ package name.raev.kaloyan.android.eclipseuitips;
 import name.raev.kaloyan.android.eclipseuitips.model.Guideline;
 import name.raev.kaloyan.android.eclipseuitips.model.Subcategory;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 public class GuidelinesPagerActivity extends UpNavigationActivity implements OnPageChangeListener {
 	
 	private ViewPager mPager;
-	private boolean mHighlighted;
+	private Guideline mHighlightedGuideline;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +37,24 @@ public class GuidelinesPagerActivity extends UpNavigationActivity implements OnP
         Guideline guideline = Guideline.values()[index];
         
         // check if the guideline shall be highlighted
-        mHighlighted = getIntent().getBooleanExtra(Guideline.EXTRA_HIGHLIGHTED, false);
+        mHighlightedGuideline = getIntent().getBooleanExtra(Guideline.EXTRA_HIGHLIGHTED, false) ? guideline : null;
 
         // initialize the pager
 		mPager = (ViewPager) findViewById(R.id.guidelines_pager);
 		mPager.setOnPageChangeListener(this);
-        mPager.setAdapter(new GuidelinesPageAdapter(guideline, mHighlighted));
+        mPager.setAdapter(new GuidelinesPageAdapter());
         
         // set the initial page to the guideline's category
-        int subcategoryIndex = guideline.subcategory().ordinal();
+        scrollTo(guideline);
+	}
+	
+	private void scrollTo(Guideline guideline) {
+		int subcategoryIndex = guideline.subcategory().ordinal();
         mPager.setCurrentItem(subcategoryIndex);
         setActivityTitle(subcategoryIndex);
+        
+        // notify all fragments that the highlight has changed
+        GuidelinesFragment.highlightChanged(guideline);
 	}
 	
 	private void setActivityTitle(int subcategoryIndex) {
@@ -54,7 +64,9 @@ public class GuidelinesPagerActivity extends UpNavigationActivity implements OnP
 	
     @Override
 	protected Class<?> getUpLevelActivity() {
-    	return (mHighlighted) ? super.getUpLevelActivity() : CategoriesActivity.class;
+    	return (mHighlightedGuideline == null) ?	// check if there is a highlighted guideline
+    			CategoriesActivity.class : 			// No - return to the list of categories
+    			super.getUpLevelActivity(); 		// Yes - return to the welcome screen
 	}
 	
     @Override
@@ -70,16 +82,36 @@ public class GuidelinesPagerActivity extends UpNavigationActivity implements OnP
     @Override
     public void onPageScrollStateChanged(int state) {
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.guidelines_pager_activity, menu);
+        return true;
+    }
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+	        case R.id.menu_random:
+	        	// draw a random guideline to show in the guidelines list
+	    		mHighlightedGuideline = Guideline.random();
+	    		// scroll the pager
+	    		scrollTo(mHighlightedGuideline);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+		}
+	}
+	
+	public Guideline getHighlightedGuildeine() {
+		return mHighlightedGuideline;
+	}
+
 	private class GuidelinesPageAdapter extends FragmentPagerAdapter {
 		
-		private Guideline mGuideline;
-		private boolean mHighlighted;
-		
-		public GuidelinesPageAdapter(Guideline guideline, boolean hightlighed) {
+		public GuidelinesPageAdapter() {
 			 super(GuidelinesPagerActivity.this.getSupportFragmentManager());
-			 mGuideline = guideline;
-			 mHighlighted = hightlighed;
 		}
 
 		@Override
@@ -88,9 +120,9 @@ public class GuidelinesPagerActivity extends UpNavigationActivity implements OnP
 		}
 		
 		@Override
-		public Fragment getItem(int position) {
+		public GuidelinesFragment getItem(int position) {
 			Subcategory subcategory = Subcategory.values()[position];
-			return GuidelinesFragment.newInstance(subcategory, mGuideline, mHighlighted);
+			return GuidelinesFragment.newInstance(subcategory);
 		}
 		
 	}
