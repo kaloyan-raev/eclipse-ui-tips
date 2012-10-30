@@ -34,3 +34,5 @@ License
 -------
 
 This program is an open source software licensed under the [Eclipse Public License](http://www.eclipse.org/legal/epl-v10.html).
+
+The [ic_action_random.png](https://github.com/kaloyan-raev/eclipse-ui-tips/blob/master/EclipseUITips/res/drawable-mdpi/ic_action_random.png) icon is a derivative of [glyphicons.com](http://glyphicons.com). The original icon is distributed under the [CC-BY 3.0](http://creativecommons.org/licenses/by/3.0/deed.en) license.
